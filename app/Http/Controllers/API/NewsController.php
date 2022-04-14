@@ -80,4 +80,16 @@ class NewsController extends Controller
             ], 'Authentication Failed');
         }
     }
+
+    public function delete($id)
+    {
+        $news = News::findOrFail($id);
+        $data = $news->delete();
+
+        if ($data) {
+            return ResponseFormatter::success('Data berhasil dihapus');
+        } else {
+            return ResponseFormatter::error('Gagal bro');
+        }
+    }
 }

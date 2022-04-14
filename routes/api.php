@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\NewsAgreementController;
 use App\Http\Controllers\API\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('news', [NewsController::class, 'get']);
 Route::post('news/post', [NewsController::class, 'post']);
+Route::get('news/delete/{id}', [NewsController::class, 'delete']);
+
+Route::get('agreement', [NewsAgreementController::class, 'get']);
